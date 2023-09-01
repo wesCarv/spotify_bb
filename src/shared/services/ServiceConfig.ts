@@ -32,6 +32,14 @@ class ServiceConfig {
     }
   }
 
+  public async patch<T, B, R = AxiosResponse<T>>(url: string, data?: B): Promise<R> {
+    try {
+      return await client.patch(url, data)
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
+
   public async delete<T, B, R = AxiosResponse<T>>(
     url: string,
     data?: AxiosRequestConfig<B>
